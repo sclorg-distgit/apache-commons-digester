@@ -7,7 +7,7 @@
 
 Name:          %{?scl_prefix}%{pkg_name}
 Version:       1.8.1
-Release:       19.11%{?dist}
+Release:       19.12%{?dist}
 Summary:       XML to Java object mapping module
 License:       ASL 2.0
 URL:           http://commons.apache.org/%{base_name}/
@@ -17,15 +17,15 @@ Source0:       http://archive.apache.org/dist/commons/%{base_name}/source/%{shor
 BuildArch:     noarch
 
 BuildRequires: %{?scl_prefix_java_common}javapackages-tools
-BuildRequires: maven30-apache-commons-parent >= 26-7
+BuildRequires: %{?scl_prefix}apache-commons-parent >= 26-7
 BuildRequires: %{?scl_prefix_java_common}apache-commons-beanutils >= 1.8
 BuildRequires: %{?scl_prefix_java_common}apache-commons-logging >= 1.1.1
 BuildRequires: %{?scl_prefix_java_common}maven-local
-BuildRequires: maven30-maven-antrun-plugin
-BuildRequires: maven30-maven-assembly-plugin
-BuildRequires: maven30-maven-resources-plugin
-BuildRequires: maven30-maven-doxia-sitetools
-BuildRequires: maven30-maven-plugin-bundle
+BuildRequires: %{?scl_prefix}maven-antrun-plugin
+BuildRequires: %{?scl_prefix}maven-assembly-plugin
+BuildRequires: %{?scl_prefix}maven-resources-plugin
+BuildRequires: %{?scl_prefix}maven-doxia-sitetools
+BuildRequires: %{?scl_prefix}maven-plugin-bundle
 
 %description
 Many projects read XML configuration files to provide initialization of
@@ -41,7 +41,7 @@ Summary:       API documentation for %{pkg_name}
 
 %prep
 %setup -q -n %{short_name}-%{version}-src
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 
 sed -i 's/\r//' RELEASE-NOTES*.txt LICENSE.txt NOTICE.txt
@@ -51,13 +51,13 @@ sed -i 's/\r//' RELEASE-NOTES*.txt LICENSE.txt NOTICE.txt
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -69,6 +69,9 @@ set -e -x
 %doc LICENSE.txt NOTICE.txt
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.8.1-19.12
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 1.8.1-19.11
 - maven33 rebuild
 
