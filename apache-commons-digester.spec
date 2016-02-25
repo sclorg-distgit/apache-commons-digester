@@ -7,7 +7,7 @@
 
 Name:          %{?scl_prefix}%{pkg_name}
 Version:       1.8.1
-Release:       19.12%{?dist}
+Release:       19.13%{?dist}
 Summary:       XML to Java object mapping module
 License:       ASL 2.0
 URL:           http://commons.apache.org/%{base_name}/
@@ -20,7 +20,7 @@ BuildRequires: %{?scl_prefix_java_common}javapackages-tools
 BuildRequires: %{?scl_prefix}apache-commons-parent >= 26-7
 BuildRequires: %{?scl_prefix_java_common}apache-commons-beanutils >= 1.8
 BuildRequires: %{?scl_prefix_java_common}apache-commons-logging >= 1.1.1
-BuildRequires: %{?scl_prefix_java_common}maven-local
+BuildRequires: %{?scl_prefix}maven-local
 BuildRequires: %{?scl_prefix}maven-antrun-plugin
 BuildRequires: %{?scl_prefix}maven-assembly-plugin
 BuildRequires: %{?scl_prefix}maven-resources-plugin
@@ -69,6 +69,9 @@ set -e -x
 %doc LICENSE.txt NOTICE.txt
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 1.8.1-19.13
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.8.1-19.12
 - maven33 rebuild #2
 
