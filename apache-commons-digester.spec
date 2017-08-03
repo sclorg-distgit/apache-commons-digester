@@ -5,7 +5,7 @@
 
 Name:          %{?scl_prefix}apache-%{short_name}
 Version:       2.1
-Release:       8.1%{?dist}
+Release:       8.2%{?dist}
 Summary:       XML to Java object mapping module
 License:       ASL 2.0
 URL:           http://commons.apache.org/digester/
@@ -51,6 +51,9 @@ This package contains the %{summary}.
 %doc LICENSE.txt NOTICE.txt
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 2.1-8.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 2.1-8.1
 - Automated package import and SCL-ization
 
